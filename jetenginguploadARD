@@ -1,0 +1,40 @@
+int dataTable[5] = {0, 0, 0, 0, 0};
+int temp = dataTable[0];
+int volt = dataTable[1];
+int rpm = dataTable[2];
+int airspeed = dataTable[3];
+int thrust = dataTable[4];
+
+
+void setup() {
+  // put your setup code here, to run once:
+Serial.begin(9600);
+}
+
+void sendTheData(){
+  for(int i = 0; i<=4; i++)
+  {
+
+    char buffer[100]; // Create a buffer to store the formatted string
+    sprintf(buffer, "<%d,%d>", i, dataTable[i]);
+    Serial.println (buffer);
+    
+  }
+  
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+dataTable[0] += 3;
+dataTable[1] += 4;
+dataTable[2] += 50;
+dataTable[3] += 10;
+dataTable[4] += 1;
+
+sendTheData();
+delay(500);
+}
+
+
+
+
