@@ -1,0 +1,27 @@
+import processing.serial.*;
+
+Serial myPort;      // Create object from Serial class
+String val;         // Data received from the serial port
+int[] dataTable = {0, 0, 0, 0, 0};
+String filtered = "Filtered:" + dataTable[0];
+String current = "Current:" + dataTable[1];
+String temperature = "Temperature:" + dataTable[2];
+String airspeed = "Airspeed" + dataTable[3];
+String rpm = "RPM:" + dataTable [4];
+
+void setup() {
+  size(1000, 1000); // Set the size of the Processing window
+  myPort = new Serial(this, "COM5" , 115200); // Initialize serial communication at 9600 baud
+}
+
+void draw() {
+  background(200);
+
+  println(filtered);
+  println(current);
+  println(temperature);
+  println(airspeed);
+  println(rpm);
+  text(temperature, 30, 20);
+  fill(0);
+}
